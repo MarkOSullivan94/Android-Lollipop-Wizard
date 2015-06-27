@@ -19,6 +19,7 @@ package com.example.android.wizardpager;
 import com.example.android.wizardpager.wizard.model.AbstractWizardModel;
 import com.example.android.wizardpager.wizard.model.BranchPage;
 import com.example.android.wizardpager.wizard.model.CustomerInfoPage;
+import com.example.android.wizardpager.wizard.model.InstructionPage;
 import com.example.android.wizardpager.wizard.model.MultipleFixedChoicePage;
 import com.example.android.wizardpager.wizard.model.PageList;
 import com.example.android.wizardpager.wizard.model.SingleFixedChoicePage;
@@ -33,47 +34,43 @@ public class SandwichWizardModel extends AbstractWizardModel {
     @Override
     protected PageList onNewRootPageList() {
         return new PageList(
-                new BranchPage(this, "Order type")
-                        .addBranch("Sandwich",
-                                new SingleFixedChoicePage(this, "Bread")
-                                        .setChoices("White", "Wheat", "Rye", "Pretzel", "Ciabatta")
+
+                // BranchPage shows all of the branches available: Branch One, Branch Two, Branch Three. Each of these branches
+                // have their own questions and the choices of the user will be summarised in the review section at the end
+                new BranchPage(this, "Select one options")
+                        .addBranch("Branch One",
+                                new SingleFixedChoicePage(this, "Question One")
+                                        .setChoices("A", "B", "C", "D")
                                         .setRequired(true),
 
-                                new MultipleFixedChoicePage(this, "Meats")
-                                        .setChoices("Pepperoni", "Turkey", "Ham", "Pastrami",
-                                                "Roast Beef", "Bologna"),
-
-                                new MultipleFixedChoicePage(this, "Veggies")
-                                        .setChoices("Tomatoes", "Lettuce", "Onions", "Pickles",
-                                                "Cucumbers", "Peppers"),
-
-                                new MultipleFixedChoicePage(this, "Cheeses")
-                                        .setChoices("Swiss", "American", "Pepperjack", "Muenster",
-                                                "Provolone", "White American", "Cheddar", "Bleu"),
-
-                                new BranchPage(this, "Toasted?")
-                                        .addBranch("Yes",
-                                                new SingleFixedChoicePage(this, "Toast time")
-                                                        .setChoices("30 seconds", "1 minute",
-                                                                "2 minutes"))
-                                        .addBranch("No")
-                                        .setValue("No"))
-
-                        .addBranch("Salad",
-                                new SingleFixedChoicePage(this, "Salad type")
-                                        .setChoices("Greek", "Caesar")
-                                        .setRequired(true),
-
-                                new SingleFixedChoicePage(this, "Dressing")
-                                        .setChoices("No dressing", "Balsamic", "Oil & vinegar",
-                                                "Thousand Island", "Italian")
-                                        .setValue("No dressing")
+                                new MultipleFixedChoicePage(this, "Question Two")
+                                        .setChoices("A", "B", "C", "D",
+                                                "E")
                         )
 
-                        .setRequired(true),
+                                // Second branch of questions
+                        .addBranch("Branch Two",
+                                new SingleFixedChoicePage(this, "Question One")
+                                        .setChoices("A", "B")
+                                        .setRequired(true),
 
-                new CustomerInfoPage(this, "Your info")
-                        .setRequired(true)
+                                new SingleFixedChoicePage(this, "Question Two")
+                                        .setChoices("A", "B", "C",
+                                                "D", "E", "F")
+                                        .setRequired(true),
+
+                                new SingleFixedChoicePage(this, "Question Three")
+                                        .setChoices("A", "B", "C")
+                        )
+
+                                // Third branch of questions
+                        .addBranch("Branch Three",
+                                new InstructionPage(this, "Info"),
+
+                                new SingleFixedChoicePage(this, "Question One")
+                                        .setChoices("A", "B", "C")
+                                        .setRequired(true)
+                        )
         );
     }
 }

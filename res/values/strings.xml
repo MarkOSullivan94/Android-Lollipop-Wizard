@@ -15,11 +15,11 @@
   -->
 
 <resources>
-    <string name="app_name">Place Order</string>
+    <string name="app_name">Wizards</string>
 
     <string name="next">Next</string>
     <string name="prev">Previous</string>
-    <string name="finish">Submit order</string>
+    <string name="finish">Submit</string>
     <string name="review">Review</string>
 
     <string name="label_your_name">Name</string>
@@ -27,9 +27,9 @@
     <string name="hint_your_name">e.g. Larry</string>
     <string name="hint_your_email">Optional</string>
 
-    <string name="submit_confirm_message">Place the order with the deli? You will receive an email
-        confirmation.</string>
-    <string name="submit_confirm_button">Place order</string>
+    <string name="submit_confirm_message">Are you happy with your choices?</string>
+    <string name="submit_confirm_button">OK</string>
+
     <string name="herp_derpsum">Herp derpsum sherpus derpler berps tee herp ter sherper der derpus terp? Merp ner, dee der perp.
         Sherpus ter berp derpler derperker pee herpler. Le ner derpus terpus, der ter herpy? Ner terp serp herpem berps herpy der ter.</string>
 </resources>
